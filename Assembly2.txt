@@ -1,0 +1,10 @@
+    ORG     $1000
+START:
+    LEA     MSG,A1
+    MOVE.B  #13,D0
+    TRAP    #15
+    MOVE.B  #9,D0
+    TRAP    #15
+MSG:
+    DC.B    'Hello World',0
+    END     START

@@ -1,0 +1,20 @@
+    ORG    $1000
+START:
+    LEA    FILENAME,  A1
+    MOVE   #51,       D0
+    TRAP   #15
+
+    MOVE.L #FILESIZE, D2
+    LEA    BUFFER,    A1
+    MOVE   #53,       D0
+    TRAP   #15
+
+    SIMHALT
+    
+    ORG    $2000
+    
+FILENAME   dc.b       'file.txt', 0
+BUFFER     ds.b       80
+FILESIZE   dc.b       80
+
+    END    START
